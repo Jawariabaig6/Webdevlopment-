@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PetDecode</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <h1>coming from github</h1>
+    <div id="app">
+        <header>
+            <h1 v-text="sitename"></h1>
+        </header>
+        <main>
+            <figure>
+                <img v-bind:src="product.Image" alt="" height="200px" width="200px">
+            </figure>
+            <h2 v-text="product.Title"></h2>
+            <p v-text="product.Description"></p>
+            <p Price:product.Price></p>
+            <p v-html="product.Description"></p>
+            <button v-on:click="addToCart"> Add to Cart</button>
+
+        </main>
+    </div>
+    <script type="text/javascript">
+        var webstore = new Vue({
+            el: "#app",
+            data: {
+                sitename: 'Vue.js Pet Depot',
+                product: {
+                    Id: 1001,
+                    Title: "Cat Food, 25lb bag",
+                    Description: "A 25lb pound bag of  <em>irrestible</em>" + " oraganic goodness for your cat",
+                    Price: 2000,
+                    Image: "image/jia.jpg"
+
+
+                },
+                cart: []
+            },
+            methods: {
+                addToCart: function () {
+                    this.cart.push(this.product.Id);
+                    console.log(this.cart);
+
+                }
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>
